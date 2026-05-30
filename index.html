@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up UI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            padding: 20px;
+        }
+
+        .container {
+            width: 800px;
+            height: 500px;
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* LEFT SIDE */
+        .left {
+            width: 50%;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .left h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .left p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* RIGHT SIDE */
+        .right {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        .switch {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* ✅ RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+                height: auto;
+            }
+
+            .left {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .right {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .left h2 {
+                font-size: 24px;
+            }
+
+            body {
+                height: auto;
+                padding: 40px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- LEFT -->
+        <div class="left">
+            <h2>Welcome Back!</h2>
+            <p>Login or create your account to continue</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm">
+                <h2>Sign In</h2>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="button">Login</button>
+                <div class="switch" onclick="toggleForm()">
+                    Don't have an account? Sign Up
+                </div>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="registerForm" class="hidden">
+                <h2>Sign Up</h2>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="button">Create Account</button>
+                <div class="switch" onclick="toggleForm()">
+                    Already have an account? Sign In
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            document.getElementById("loginForm").classList.toggle("hidden");
+            document.getElementById("registerForm").classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+
+</html>
